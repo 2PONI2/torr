@@ -1,6 +1,8 @@
 # Torr
 
 > *Репозиторий проекта, тут расписаны для чего какие файлы и инструкция по установке*
+> 
+> *Дизайн (надо доделать): https://www.figma.com/design/LHlQdwDuPFpS5tyuyCuJX5/FreeTp?node-id=0-1&p=f&t=WLRVlAE4CiYpNuvV-0*
 
 ## 📖 О проекте
 
