@@ -1,0 +1,644 @@
+/* ПРЕЛОАДЕР */
+.preloader {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    z-index: 9998;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s, visibility 0.8s;
+    gap: 1.5rem;
+}
+.preloader--hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+.preloader__brain { font-size: 4rem; animation: preloader-pulse 1.5s ease-in-out infinite; }
+@keyframes preloader-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+.preloader__text {
+    font-family: 'Tektur', sans-serif;
+    font-size: 1.2rem; /* Сделал чуть крупнее */
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.15em;
+}
+.preloader__progress {
+    width: 200px;
+    height: 2px;
+    background: var(--border);
+    border-radius: 1px;
+    overflow: hidden;
+}
+.preloader__bar {
+    width: 0%;
+    height: 100%;
+    background: var(--gradient);
+    animation: preload 1.5s ease-in-out forwards 0.3s;
+}
+@keyframes preload { to { width: 100%; } }
+
+/* ХЕДЕР */
+header {
+    padding: 1.2rem 0;
+    background: rgba(8, 8, 12, 0.85);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.logo svg { width: 30px; height: 30px; }
+
+nav {
+    display: flex;
+    gap: 2rem;
+}
+nav a {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+}
+nav a:hover { color: #fff; }
+
+.signin {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-family: 'Tektur', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 0.05em;
+}
+.signin:hover {
+    border-color: var(--accent);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+}
+
+/* ГЕРОЙ СЕКЦИЯ (ПОРТАЛ) */
+.hero {
+    padding: 4rem 0 6rem;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle at 70% 50%, rgba(168, 85, 247, 0.05), transparent 60%);
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+    background: linear-gradient(to right, #fff, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hero-text p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+}
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2.2rem;
+    border-radius: 50px;
+    font-family: 'Tektur', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
+    letter-spacing: 0.05em;
+}
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.5);
+}
+
+.btn-secondary {
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    border: 1px solid var(--border);
+    padding: 0.8rem 2.2rem;
+    border-radius: 50px;
+    font-family: 'Tektur', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 0.05em;
+}
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--text-secondary);
+}
+
+.portal-wrap{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+.portal{
+    width:420px;
+    height:420px;
+    position:relative;
+}
+.portal-glow{
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(139,60,242,.55) 0%, rgba(139,60,242,.15) 45%, transparent 70%);
+    filter: blur(10px);
+    animation: pulse 4s ease-in-out infinite;
+}
+@keyframes pulse{
+    0%,100%{transform:scale(1); opacity:.85;}
+    50%{transform:scale(1.08); opacity:1;}
+}
+.portal-ring-outer{
+    position:absolute;
+    inset:30px;
+    border-radius:50%;
+    border:2px solid rgba(168,85,247,.5);
+}
+.portal-swirl{
+    position:absolute;
+    inset:60px;
+    border-radius:50%;
+    background: conic-gradient(from 0deg, #2a0a4a, #8b3cf2, #c084fc, #2a0a4a 60%, #150826);
+    box-shadow: inset 0 0 60px rgba(0,0,0,.6), 0 0 60px rgba(139,60,242,.6);
+    animation: spin 9s linear infinite;
+}
+@keyframes spin{ to{ transform: rotate(360deg); } }
+.portal-swirl::after{
+    content:'';
+    position:absolute;
+    inset:18%;
+    border-radius:50%;
+    background: radial-gradient(circle, #000 0%, #1a0b2e 55%, transparent 100%);
+}
+.portal-diamond{
+    position:absolute;
+    top:-6px; left:50%;
+    width:46px;height:46px;
+    background:linear-gradient(135deg,#3a2a5c,#1c1230);
+    border:2px solid var(--accent);
+    transform:translateX(-50%) rotate(45deg);
+    box-shadow:0 0 18px rgba(168,85,247,.7);
+}
+.pillar{
+    position:absolute;
+    width:14px;
+    height:90px;
+    background:linear-gradient(180deg,#3a2a5c,#1c1230);
+    border:1px solid rgba(168,85,247,0.4);
+    bottom:8px;
+}
+.pillar.left{left:14px;}
+.pillar.right{right:14px;}
+.base{
+    position:absolute;
+    bottom:0; left:50%;
+    transform:translateX(-50%);
+    width:300px;height:18px;
+    background:linear-gradient(180deg,#2a2047,#120a22);
+    border-radius:4px;
+    box-shadow:0 0 30px rgba(139,60,242,.4);
+}
+
+/* СЕКЦИЯ "КТО МЫ" */
+.whoweare {
+    padding: 100px 0 120px;
+    position: relative;
+    overflow: hidden;
+}
+
+.whoweare .container {
+    max-width: 1200px;
+}
+
+.who-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 60px;
+}
+.who-header h2 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin: 0;
+    text-transform: uppercase;
+}
+.header-dots {
+    display: flex;
+    gap: 10px;
+}
+.header-dots span {
+    width: 8px;
+    height: 8px;
+    background: #a855f7;
+    border-radius: 50%;
+    opacity: 0.3;
+}
+.header-dots span:nth-child(1) { opacity: 1; }
+.header-dots span:nth-child(2) { opacity: 0.7; }
+.header-dots span:nth-child(3) { opacity: 0.4; }
+
+.who-track {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    padding: 20px 0;
+}
+
+.arrow-svg-wrap {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: visible;
+}
+
+.who-row {
+    display: flex;
+    width: 100%;
+}
+.who-row.left {
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+.who-row.right {
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+.who-card {
+    background: rgba(17, 17, 24, 0.7);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 30px;
+    width: 550px;
+    max-width: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.who-card:hover {
+    border-color: rgba(168, 85, 247, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.who-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a855f7;
+    background: rgba(168, 85, 247, 0.05);
+}
+.who-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #fff;
+    letter-spacing: 0.02em;
+}
+.who-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+.highlight-purple {
+    color: #a855f7;
+    text-decoration: underline;
+    text-decoration-color: rgba(168, 85, 247, 0.3);
+    text-underline-offset: 4px;
+    cursor: default;
+}
+
+#arrowPath {
+    stroke: rgba(168, 85, 247, 0.4);
+}
+
+/* БЕСКОНЕЧНАЯ КАРУСЕЛЬ ИГР */
+.games_slide {
+    padding: 4rem 0 6rem;
+    overflow: hidden;
+}
+
+/* Обертка для одного ряда */
+.marquee-row {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 1.5rem;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* Трек с картинками */
+.marquee-track {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+    will-change: transform;
+    width: max-content;
+}
+
+.marquee-track img {
+    height: 140px;
+    width: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
+}
+
+/* Эффект при наведении на картинку */
+.marquee-track img:hover {
+    transform: scale(1.05) translateY(-4px);
+    box-shadow: 0 8px 30px rgba(168, 85, 247, 0.3);
+    z-index: 10; /* Поднимаем над соседями */
+}
+
+/* АНИМАЦИИ ДВИЖЕНИЯ */
+
+/* Верхний ряд: Едет ВЛЕВО */
+.marquee-left .marquee-track {
+    animation: scrollLeft 30s linear infinite;
+}
+
+/* Нижний ряд: Едет ВПРАВО */
+.marquee-right .marquee-track {
+    animation: scrollRight 30s linear infinite;
+}
+
+/* Ключевые кадры */
+@keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+/* ПАУЗА ПРИ НАВЕДЕНИИ */
+/* Если навести мышь на любой ряд, движение в этом ряду остановится */
+.marquee-row:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+/* АДАПТИВ (Мобильные) */
+@media (max-width: 768px) {
+    .marquee-track img {
+        height: 100px; /* Уменьшаем картинки на телефонах */
+        border-radius: 8px;
+    }
+    .marquee-track {
+        gap: 1rem; /* Уменьшаем расстояние */
+    }
+}
+
+/* СЕКЦИЯ "ПОПРОБУЙ СЕЙЧАС" (НАЛОЖЕНИЕ КАРТИНОК) */
+.zaziv {
+    padding: 6rem 0 8rem;
+    background: radial-gradient(circle at 10% 50%, rgba(6, 182, 212, 0.05), transparent 50%);
+}
+
+.zaziv-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.image-stack-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 3 / 4;
+    margin: 0 auto;
+}
+
+.image-stack-wrapper img {
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+    object-fit: cover;
+}
+
+.image-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75%;
+    z-index: 1;
+    transform: translate(-30px, 40px) rotate(-3deg);
+}
+.image-back img {
+    width: 100%;
+    height: auto;
+}
+
+.image-front {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 85%;
+    z-index: 2;
+    transform: translate(20px, -20px) rotate(3deg);
+}
+.image-front img {
+    width: 100%;
+    height: auto;
+}
+
+.zaziv-text {
+    padding-right: 1rem;
+}
+.zaziv-text h2 {
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+}
+.highlight {
+    color: var(--accent);
+}
+.zaziv-text p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+}
+.btn-large {
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+}
+
+/* АДАПТИВ (МОБИЛЬНЫЕ) */
+@media (max-width: 1024px) {
+    .hero-content { grid-template-columns: 1fr; text-align: center; }
+    .hero-text p { margin: 0 auto 2.5rem; }
+    .hero-buttons { justify-content: center; }
+    .portal { width: 300px; height: 350px; }
+    
+    .zaziv-content { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+    .zaziv-text { padding: 0; }
+    .image-stack-wrapper { max-width: 350px; }
+}
+
+@media (max-width: 768px) {
+    header { padding: 0.8rem 0; }
+    nav { display: none; }
+    .hero-text h1 { font-size: 2.8rem; }
+    .zaziv-text h2 { font-size: 2.8rem; }
+    .who-header h2 { font-size: 2.5rem; }
+    .who-card { width: 100%; flex-direction: column; }
+    
+    .image-stack-wrapper {
+        max-width: 280px;
+    }
+}
+
+/* АНИМАЦИЯ ПРОЯВЛЕНИЯ ПРИ СКРОЛЛЕ  */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px); /* Элемент смещен вниз на 50px */
+    transition: all 0.9s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.reveal--active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Если нужно, чтобы определенные элементы появлялись с задержкой (по очереди) */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* СЕКЦИЯ ПОДПИСКИ (CTA) */
+.cta-section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.cta-container {
+    display: flex;
+    justify-content: center;
+}
+
+.cta-box {
+    background: #7c3aed; /* Яркий фиолетовый */
+    border-radius: 16px;
+    padding: 60px 40px;
+    text-align: center;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(124, 58, 237, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.cta-box h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+}
+
+.cta-box p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.cta-btn {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    padding: 14px 50px;
+    border-radius: 4px;
+    font-family: 'Tektur', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    letter-spacing: 0.05em;
+}
+
+.cta-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+

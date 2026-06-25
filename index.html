@@ -3,657 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FixOn</title>
     <link rel="stylesheet" href="css/global/reset.css">
     <link rel="stylesheet" href="css/global/variables.css">
     <link rel="stylesheet" href="css/global/typography.css">
     <link rel="stylesheet" href="css/global/layout.css">
     <link rel="stylesheet" href="css/global/components.css">
     <link rel="stylesheet" href="css/pages/index.css">
+    <!-- Подключение шрифта Inter для красоты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FixOn — Играй бесплатно в мультиплеерные игры</title>
-<style>
-  :root{
-    --bg: #0a0816;
-    --bg-2: #0e0b1f;
-    --purple: #8b3cf2;
-    --purple-bright: #a855f7;
-    --purple-dim: #5b2a9c;
-    --text: #f3f0fa;
-    --text-dim: #9a93b8;
-    --line: #2a2247;
-    --red-line: #b3203e;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    overflow-x:hidden;
-  }
- 
-  /* ---------- DOT FIELD BACKGROUND ---------- */
-  #dotfield{
-    position:fixed;
-    inset:0;
-    z-index:0;
-    pointer-events:none;
-  }
- 
-  /* ---------- HEADER ---------- */
-  header{
-    position:sticky;
-    top:0;
-    z-index:50;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:20px 64px;
-    background:rgba(10,8,22,0.85);
-    backdrop-filter: blur(10px);
-    border-bottom:1px solid var(--red-line);
-  }
-  .logo{display:flex;align-items:center;gap:14px;}
-  .logo svg{width:34px;height:34px;}
-  .logo span{font-size:22px;font-weight:700;letter-spacing:1px;}
-  nav{display:flex;gap:40px;}
-  nav a{color:var(--text);text-decoration:none;font-size:15px;opacity:.85;transition:opacity .2s, color .2s;position:relative;}
-  nav a:hover{opacity:1;color:var(--purple-bright);}
-  nav a::after{
-    content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--purple-bright);
-    transition:width .25s ease;
-  }
-  nav a:hover::after{width:100%;}
-  .signin{
-    border:1px solid var(--purple);
-    color:var(--text);
-    padding:9px 22px;
-    border-radius:6px;
-    font-size:14px;
-    background:transparent;
-    cursor:pointer;
-    transition:all .25s ease;
-  }
-  .signin:hover{background:var(--purple); box-shadow:0 0 18px rgba(139,60,242,.6);}
- 
-  section{position:relative;z-index:1;}
- 
-  /* ---------- HERO ---------- */
-  .hero{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    align-items:center;
-    padding: 100px 64px 60px;
-    gap:40px;
-    max-width:1400px;
-    margin:0 auto;
-  }
-  .hero h1{
-    font-size:52px;
-    line-height:1.12;
-    font-weight:800;
-    letter-spacing:.5px;
-    text-transform:uppercase;
-  }
-  .hero p{
-    margin-top:24px;
-    color:var(--text-dim);
-    font-size:16px;
-    line-height:1.6;
-    max-width:420px;
-  }
-  .hero-buttons{display:flex;gap:18px;margin-top:32px;}
-  .btn-primary{
-    background:var(--purple);
-    color:#fff;
-    border:none;
-    padding:14px 28px;
-    border-radius:6px;
-    font-size:15px;
-    font-weight:600;
-    cursor:pointer;
-    transition:transform .2s, box-shadow .2s;
-  }
-  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 8px 24px rgba(139,60,242,.45);}
-  .btn-secondary{
-    background:transparent;
-    color:var(--text);
-    border:1px solid var(--line);
-    padding:14px 28px;
-    border-radius:6px;
-    font-size:15px;
-    cursor:pointer;
-    transition:border-color .2s, color .2s;
-  }
-  .btn-secondary:hover{border-color:var(--purple-bright); color:var(--purple-bright);}
- 
-  /* ---------- PORTAL ---------- */
-  .portal-wrap{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:relative;
-  }
-  .portal{
-    width:420px;
-    height:420px;
-    position:relative;
-  }
-  .portal-glow{
-    position:absolute;
-    inset:0;
-    border-radius:50%;
-    background: radial-gradient(circle, rgba(139,60,242,.55) 0%, rgba(139,60,242,.15) 45%, transparent 70%);
-    filter: blur(10px);
-    animation: pulse 4s ease-in-out infinite;
-  }
-  @keyframes pulse{
-    0%,100%{transform:scale(1); opacity:.85;}
-    50%{transform:scale(1.08); opacity:1;}
-  }
-  .portal-ring-outer{
-    position:absolute;
-    inset:30px;
-    border-radius:50%;
-    border:2px solid rgba(168,85,247,.5);
-  }
-  .portal-frame{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-  }
-  .portal-swirl{
-    position:absolute;
-    inset:60px;
-    border-radius:50%;
-    background: conic-gradient(from 0deg, #2a0a4a, #8b3cf2, #c084fc, #2a0a4a 60%, #150826);
-    box-shadow: inset 0 0 60px rgba(0,0,0,.6), 0 0 60px rgba(139,60,242,.6);
-    animation: spin 9s linear infinite;
-  }
-  @keyframes spin{ to{ transform: rotate(360deg); } }
-  .portal-swirl::after{
-    content:'';
-    position:absolute;
-    inset:18%;
-    border-radius:50%;
-    background: radial-gradient(circle, #000 0%, #1a0b2e 55%, transparent 100%);
-  }
-  .portal-diamond{
-    position:absolute;
-    top:-6px; left:50%;
-    width:46px;height:46px;
-    background:linear-gradient(135deg,#3a2a5c,#1c1230);
-    border:2px solid var(--purple-bright);
-    transform:translateX(-50%) rotate(45deg);
-    box-shadow:0 0 18px rgba(168,85,247,.7);
-  }
-  .pillar{
-    position:absolute;
-    width:14px;
-    height:90px;
-    background:linear-gradient(180deg,#3a2a5c,#1c1230);
-    border:1px solid var(--purple-dim);
-    bottom:8px;
-  }
-  .pillar.left{left:14px;}
-  .pillar.right{right:14px;}
-  .base{
-    position:absolute;
-    bottom:0; left:50%;
-    transform:translateX(-50%);
-    width:300px;height:18px;
-    background:linear-gradient(180deg,#2a2047,#120a22);
-    border-radius:4px;
-    box-shadow:0 0 30px rgba(139,60,242,.4);
-  }
- 
-  /* ---------- WHO WE ARE ---------- */
-  .whoweare{
-    padding:120px 64px;
-    max-width:1300px;
-    margin:0 auto;
-  }
-  .whoweare h2{
-    font-size:34px;
-    font-weight:800;
-    text-transform:uppercase;
-    margin-bottom:60px;
-    letter-spacing:1px;
-  }
-  .who-track{
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    gap:50px;
-  }
-  .who-row{display:flex;align-items:flex-start;gap:20px;}
-  .who-row.right{justify-content:flex-end;}
-  .who-card{
-    background:rgba(20,15,38,.6);
-    border:1px solid var(--line);
-    border-radius:10px;
-    padding:24px 28px;
-    max-width:440px;
-    display:flex;
-    gap:20px;
-    align-items:flex-start;
-    transition:border-color .3s, transform .3s;
-  }
-  .who-card:hover{border-color:var(--purple-bright); transform:translateY(-3px);}
-  .who-icon{
-    width:48px;height:48px;flex:0 0 48px;
-    border-radius:8px;
-    border:1px solid var(--purple-dim);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--purple-bright);
-  }
-  .who-card h3{font-size:17px;margin-bottom:8px;}
-  .who-card p{font-size:14px;color:var(--text-dim);line-height:1.55;}
-  .who-card a{color:var(--purple-bright); text-decoration:underline; cursor:pointer;}
- 
-  .arrow-svg-wrap{
-    position:absolute;
-    inset:0;
-    pointer-events:none;
-    z-index:-1;
-  }
-  #arrowPath{
-    fill:none;
-    stroke:var(--purple-dim);
-    stroke-width:2;
-  }
-  #arrowMover{
-    transition: none;
-  }
- 
-  /* ---------- GAME CARDS ---------- */
-  .games-section{
-    padding:60px 0 100px;
-    overflow:hidden;
-  }
-  .games-section h2{
-    padding:0 64px 30px;
-    font-size:26px;
-    font-weight:700;
-  }
-  .carousel-viewport{
-    overflow:hidden;
-    position:relative;
-    width:100%;
-  }
-  .carousel-track{
-    display:flex;
-    gap:24px;
-    width:max-content;
-    animation: scrollLeft 40s linear infinite;
-  }
-  .carousel-viewport:hover .carousel-track{ animation-play-state: paused; }
-  @keyframes scrollLeft{
-    from{ transform:translateX(0); }
-    to{ transform:translateX(-50%); }
-  }
-  .game-card{
-    width:260px;
-    height:150px;
-    border-radius:10px;
-    flex:0 0 auto;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:700;
-    font-size:20px;
-    color:#fff;
-    position:relative;
-    overflow:hidden;
-    border:1px solid var(--line);
-    transition:transform .3s;
-  }
-  .game-card:hover{transform:translateY(-6px) scale(1.02);}
-  .game-card::before{
-    content:'';
-    position:absolute; inset:0;
-    background:rgba(0,0,0,.25);
-  }
-  .game-card span{position:relative; z-index:1; text-align:center; padding:0 12px; text-shadow:0 2px 8px rgba(0,0,0,.6);}
- 
-  /* ---------- CTA SPLIT ---------- */
-  .cta-split{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap:60px;
-    padding:100px 64px;
-    max-width:1300px;
-    margin:0 auto;
-    align-items:center;
-  }
-  .cta-images{
-    position:relative;
-    height:380px;
-  }
-  .cta-images img{
-    position:absolute;
-    border-radius:14px;
-    object-fit:cover;
-    box-shadow:0 20px 50px rgba(0,0,0,.5);
-  }
-  .cta-img-1{ width:220px; height:340px; left:0; top:20px; opacity:.55; filter:saturate(1.2);}
-  .cta-img-2{ width:260px; height:360px; left:120px; top:0; border:1px solid var(--purple-dim);}
-  .cta-text h2{font-size:34px; font-weight:800;}
-  .cta-text h2 span{color:var(--purple-bright);}
-  .cta-text p{margin:22px 0 30px; color:var(--text-dim); line-height:1.6; max-width:420px;}
-  .cta-text p a{color:var(--purple-bright); text-decoration:underline;}
- 
-  /* ---------- NEWSLETTER ---------- */
-  .newsletter{
-    margin:0 64px 100px;
-    background:linear-gradient(135deg, var(--purple) 0%, #5b2a9c 100%);
-    border-radius:16px;
-    padding:70px 40px;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-  }
-  .newsletter::before{
-    content:'';
-    position:absolute; inset:0;
-    background: radial-gradient(circle at 20% 20%, rgba(255,255,255,.08), transparent 50%);
-  }
-  .newsletter h2{font-size:30px; font-weight:800; position:relative;}
-  .newsletter p{margin:18px 0 30px; opacity:.9; position:relative; max-width:480px; margin-left:auto; margin-right:auto;}
-  .newsletter button{
-    position:relative;
-    background:rgba(0,0,0,.4);
-    color:#fff;
-    border:1px solid rgba(255,255,255,.3);
-    padding:14px 30px;
-    border-radius:6px;
-    cursor:pointer;
-    font-size:15px;
-    transition:background .25s;
-  }
-  .newsletter button:hover{background:rgba(0,0,0,.6);}
- 
-  /* ---------- FOOTER ---------- */
-  footer{
-    border-top:1px solid var(--line);
-    padding:50px 64px 30px;
-  }
-  .footer-grid{
-    display:grid;
-    grid-template-columns: 1.4fr 1fr 1fr 1fr;
-    gap:30px;
-    max-width:1300px;
-    margin:0 auto 30px;
-  }
-  .footer-grid h4{font-size:18px; margin-bottom:18px;}
-  .footer-grid a{display:block; color:var(--text-dim); text-decoration:none; margin-bottom:12px; font-size:14px; transition:color .2s;}
-  .footer-grid a:hover{color:var(--purple-bright);}
-  .footer-bottom{
-    max-width:1300px;
-    margin:0 auto;
-    font-size:12px;
-    color:var(--text-dim);
-    border-top:1px solid var(--line);
-    padding-top:20px;
-  }
- 
-  @media (max-width: 900px){
-    .hero{grid-template-columns:1fr; padding:60px 24px;}
-    header{padding:16px 24px;}
-    nav{display:none;}
-    .cta-split{grid-template-columns:1fr; padding:60px 24px;}
-    .footer-grid{grid-template-columns:1fr 1fr;}
-    .portal{width:300px;height:300px;}
-  }
- 
-  @media (prefers-reduced-motion: reduce){
-    .portal-swirl, .portal-glow, .carousel-track{animation:none !important;}
-  }
-</style>
-</head>
-<body>
- 
-<canvas id="dotfield"></canvas>
- 
-<header>
-  <div class="logo">
-    <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="12" rx="2" fill="#8b3cf2"/><rect x="5" y="9" width="2" height="2" fill="#0a0816"/><rect x="8" y="9" width="2" height="2" fill="#0a0816"/><rect x="11" y="9" width="2" height="2" fill="#0a0816"/><rect x="14" y="9" width="2" height="2" fill="#0a0816"/><rect x="17" y="9" width="2" height="2" fill="#0a0816"/><rect x="6" y="13" width="12" height="2" fill="#0a0816"/></svg>
-    <span>FixOn</span>
-  </div>
-  <nav>
-    <a href="#">Игры</a>
-    <a href="#">Инструкции</a>
-    <a href="#">Донат</a>
-  </nav>
-  <button class="signin">SIGN IN</button>
-</header>
- 
-<section class="hero">
-  <div>
-    <h1>Играй<br>бесплатно в<br>мультиплеерные<br>игры</h1>
-    <p>Забудь о настройках. Просто скачай и играй с друзьями в любые игры по мультиплееру. Без головной боли.</p>
-    <div class="hero-buttons">
-      <button class="btn-primary">Начни сейчас</button>
-      <button class="btn-secondary">Инструкция</button>
-    </div>
-  </div>
-  <div class="portal-wrap">
-    <div class="portal">
-      <div class="portal-glow"></div>
-      <div class="pillar left"></div>
-      <div class="pillar right"></div>
-      <div class="portal-ring-outer"></div>
-      <div class="portal-swirl"></div>
-      <div class="portal-diamond"></div>
-      <div class="base"></div>
-    </div>
-  </div>
-</section>
- 
-<section class="whoweare" id="whoweare">
-  <h2>Кто мы</h2>
-  <div class="who-track" id="whoTrack">
-    <div class="arrow-svg-wrap">
-      <svg width="100%" height="100%" viewBox="0 0 1000 600" preserveAspectRatio="none" style="position:absolute;inset:0;">
-        <path id="arrowPath" d="M 80 60 L 80 280 L 920 280 L 920 480" />
-        <circle id="arrowMover" r="7" fill="#a855f7"/>
-      </svg>
-    </div>
- 
-    <div class="who-row left">
-      <div class="who-card">
-        <div class="who-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3"/><path d="M5 21v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2"/></svg>
+    
+    <!-- Прелоадер -->
+    <div class="preloader" id="preloader">
+        <div class="preloader__brain">🧠</div>
+        <div class="preloader__text">FixOn</div>
+        <div class="preloader__progress">
+            <div class="preloader__bar" id="preload-bar"></div>
         </div>
-        <div>
-          <h3>Независимое сообщество</h3>
-          <p>Мы — команда геймеров, которая делает игры <a>доступными</a>. Никаких скрытых платежей — только <a>честный</a> подход и <a>поддержка</a> игроков.</p>
+    </div>
+    
+    <!-- Хедер -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="12" rx="2" fill="#8b3cf2"/><rect x="5" y="9" width="2" height="2" fill="#0a0816"/><rect x="8" y="9" width="2" height="2" fill="#0a0816"/><rect x="11" y="9" width="2" height="2" fill="#0a0816"/><rect x="14" y="9" width="2" height="2" fill="#0a0816"/><rect x="17" y="9" width="2" height="2" fill="#0a0816"/><rect x="6" y="13" width="12" height="2" fill="#0a0816"/></svg>
+                <span>FixOn</span>
+            </div>
+            <nav>
+                <a href="store.html">Игры</a>
+                <a href="#">Инструкции</a>
+                <a href="#">Донат</a>
+            </nav>
+            <button class="signin">SIGN IN</button>
         </div>
-      </div>
-    </div>
- 
-    <div class="who-row right">
-      <div class="who-card">
-        <div class="who-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+    </header>
+
+    <!-- Главная секция -->
+    <section class="hero reveal">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Играй<br>бесплатно в<br>мультиплеерные<br>игры</h1>
+                <p>Забудь о настройках. Просто скачай и играй с друзьями в любые игры по мультиплееру. Без головной боли.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary">Начни сейчас</button>
+                    <button class="btn-secondary">Инструкция</button>
+                </div>
+            </div>
+            <div class="portal-wrap">
+                <div class="portal">
+                    <div class="portal-glow"></div>
+                    <div class="pillar left"></div>
+                    <div class="pillar right"></div>
+                    <div class="portal-ring-outer"></div>
+                    <div class="portal-swirl"></div>
+                    <div class="portal-diamond"></div>
+                    <div class="base"></div>
+                </div>
+            </div>
         </div>
-        <div>
-          <h3>Наша цель</h3>
-          <p>Сделать мультиплеер <a>доступным</a> для любой игры, а процесс установки максимально <a>понятным и простым</a>. Мы убираем технические барьеры, чтобы вы могли играть с друзьями во что угодно — без настроек, без лишних телодвижений.</p>
+    </section>
+
+        <!-- Секция "Кто мы" -->
+    <section class="whoweare reveal" id="whoweare">
+        <div class="container">
+            <div class="who-header">
+                <h2>Кто мы</h2>
+            </div>
+            
+            <div class="who-track" id="whoTrack">
+                <!-- Фоновый SVG с линией -->
+                <div class="arrow-svg-wrap">
+                    <svg id="arrowSvg" width="100%" height="100%" viewBox="0 0 1000 600" style="position:absolute; inset:0; width:100%; height:100%;">
+                        <!-- Сама линия -->
+                        <path id="arrowPath" fill="none" stroke="#a855f7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+                        <!-- Кругляшок в конце -->
+                        <circle id="arrowMover" r="5" fill="#a855f7" style="filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.8));"/>
+                    </svg>
+                </div>
+            
+                <div class="who-row left">
+                    <div class="who-card">
+                        <div class="who-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3"/><path d="M5 21v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2"/></svg>
+                        </div>
+                        <div class="who-text">
+                            <h3>Независимое сообщество</h3>
+                            <p>Мы — команда геймеров, которая делает игры <span class="highlight-purple">доступными</span>. Никаких скрытых платежей — только <span class="highlight-purple">честный</span> подход и <span class="highlight-purple">поддержка</span> игроков.</p>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="who-row right">
+                    <div class="who-card">
+                        <div class="who-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+                        </div>
+                        <div class="who-text">
+                            <h3>Наша цель</h3>
+                            <p>Сделать мультиплеер <span class="highlight-purple">доступным</span> для любой игры, а процесс установки максимально <span class="highlight-purple">понятным и простым</span>. Мы убираем технические барьеры, чтобы вы могли играть с друзьями во что угодно — без настроек, без лишних телодвижений.</p>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="who-row left">
+                    <div class="who-card">
+                        <div class="who-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>
+                        </div>
+                        <div class="who-text">
+                            <h3>Почему именно мы</h3>
+                            <p>Мы ценим <span class="highlight-purple">ваше время и безопасность</span>. Никаких вирусов, никаких сложных инструкций — только рабочие сборки, которые вы можете скачать и сразу играть с друзьями.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
- 
-    <div class="who-row left">
-      <div class="who-card">
-        <div class="who-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>
+    </section>
+
+    <!-- Секция "Игры" (Двойная бесконечная карусель) -->
+    <section class="games_slide reveal">
+        <div class="container">
+            
+            <!-- ВЕРХНИЙ РЯД (Едет ВЛЕВО) -->
+            <div class="marquee-row marquee-left">
+                <div class="marquee-track">
+                    <!-- Первый набор картинок -->
+                    <img src="img/image 3.png" alt="Game 1">
+                    <img src="img/image 5.png" alt="Game 2">
+                    <img src="img/image 7.png" alt="Game 3">
+                    <img src="img/image 108.png" alt="Game 4">
+                    <img src="img/image 11.png" alt="Game 5">
+                    <!-- Дублирующий набор для бесконечности -->
+                    <img src="img/image 3.png" alt="Game 1">
+                    <img src="img/image 5.png" alt="Game 2">
+                    <img src="img/image 7.png" alt="Game 3">
+                    <img src="img/image 108.png" alt="Game 4">
+                    <img src="img/image 11.png" alt="Game 5">
+                </div>
+            </div>
+
+            <!-- НИЖНИЙ РЯД (Едет ВПРАВО) -->
+            <div class="marquee-row marquee-right">
+                <div class="marquee-track">
+                    <!-- Первый набор картинок -->
+                    <img src="img/image 4.png" alt="Game 6">
+                    <img src="img/image 6.png" alt="Game 7">
+                    <img src="img/image 8.png" alt="Game 8">
+                    <img src="img/image 10.png" alt="Game 9">
+                    <img src="img/image 9.png" alt="Game 10">
+                    <!-- Дублирующий набор для бесконечности -->
+                    <img src="img/image 4.png" alt="Game 6">
+                    <img src="img/image 6.png" alt="Game 7">
+                    <img src="img/image 8.png" alt="Game 8">
+                    <img src="img/image 10.png" alt="Game 9">
+                    <img src="img/image 9.png" alt="Game 10">
+                </div>
+            </div>
+
         </div>
-        <div>
-          <h3>Почему именно мы</h3>
-          <p>Мы ценим <a>ваше время и безопасность</a>. Никаких вирусов, никаких сложных инструкций — только рабочие сборки, которые вы можете скачать и сразу играть с друзьями.</p>
+    </section>
+
+    <!-- Секция "Попробуй сейчас" с НАЛОЖЕННЫМИ КАРТИНКАМИ -->
+    <section class="zaziv reveal">
+        <div class="container zaziv-content">
+            <div class="image-stack-wrapper">
+                <!-- Задняя картинка (синяя) -->
+                <div class="image-back">
+                    <!-- Замените src на путь к вашей синей картинке -->
+                    <img src="img/back.png" alt="Back">
+                </div>
+                
+                <!-- Передняя картинка (оранжевая) -->
+                <div class="image-front">
+                    <!-- Замените src на путь к вашей оранжевой картинке -->
+                    <img src="img/front.png" alt="Front">
+                </div>
+            </div>
+            
+            <div class="zaziv-text">
+                <h2>Попробуй наш сервис <span class="highlight">сейчас</span></h2>
+                <p>Выбери любую игру из каталога, скачай установщик и приглашай друзей. Без регистрации, без лишних телодвижений.</p>
+                <button class="btn-primary btn-large">Начать</button>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
- 
-<section class="games-section">
-  <h2>Доступные игры</h2>
-  <div class="carousel-viewport">
-    <div class="carousel-track" id="carouselTrack"></div>
-  </div>
-</section>
- 
-<section class="cta-split">
-  <div class="cta-images">
-    <img class="cta-img-1" src="https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=400&q=80" alt="">
-    <img class="cta-img-2" src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=400&q=80" alt="">
-  </div>
-  <div class="cta-text">
-    <h2>Попробуй наш сервис<br><span>сейчас</span></h2>
-    <p>Выбери любую игру из каталога, скачай установщик и приглашай друзей. <a>Без регистрации</a>, без лишних телодвижений.</p>
-    <button class="btn-primary">Начать</button>
-  </div>
-</section>
- 
-<section class="newsletter">
-  <h2>Подпишись на новости</h2>
-  <p>Следи за анонсами и развитием проекта в нашем телеграм канале</p>
-  <button>Подписаться</button>
-</section>
- 
-<footer>
-  <div class="footer-grid">
-    <div>
-      <div class="logo" style="margin-bottom:14px;">
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><rect x="2" y="6" width="20" height="12" rx="2" fill="#8b3cf2"/><rect x="5" y="9" width="2" height="2" fill="#0a0816"/><rect x="8" y="9" width="2" height="2" fill="#0a0816"/><rect x="11" y="9" width="2" height="2" fill="#0a0816"/><rect x="14" y="9" width="2" height="2" fill="#0a0816"/><rect x="17" y="9" width="2" height="2" fill="#0a0816"/><rect x="6" y="13" width="12" height="2" fill="#0a0816"/></svg>
-        <span style="font-size:18px;font-weight:700;">FixOn</span>
-      </div>
-      <p style="color:var(--text-dim); font-size:14px; max-width:220px;">Играй с друзьями без границ</p>
-    </div>
-    <div>
-      <h4>Команда</h4>
-      <a href="#">О нас</a>
-      <a href="#">Telegram</a>
-      <a href="#">Discord</a>
-    </div>
-    <div>
-      <h4>Помощь</h4>
-      <a href="#">Политика конфиденциальности</a>
-      <a href="#">Отказ от ответственности</a>
-      <a href="#">Правообладателям</a>
-      <a href="#">Реклама</a>
-    </div>
-    <div>
-      <h4>Ресурсы</h4>
-      <a href="#">Игры</a>
-      <a href="#">Библиотека</a>
-      <a href="#">Инструкции</a>
-    </div>
-  </div>
-  <div class="footer-bottom">© 2026 FixOn. Копирование материалов сайта без разрешения запрещено.</div>
-</footer>
- 
-<script>
-/* ---------- DOT FIELD: reacts to cursor ---------- */
-const canvas = document.getElementById('dotfield');
-const ctx = canvas.getContext('2d');
-let w, h, dots = [];
-const spacing = 34;
-const mouse = {x:-9999, y:-9999};
- 
-function resize(){
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = document.documentElement.scrollHeight;
-  dots = [];
-  for(let y=0; y<h; y+=spacing){
-    for(let x=0; x<w; x+=spacing){
-      dots.push({x, y, baseR:1.1});
-    }
-  }
-}
-window.addEventListener('resize', resize);
-resize();
- 
-window.addEventListener('mousemove', (e)=>{
-  mouse.x = e.clientX;
-  mouse.y = e.clientY + window.scrollY;
-});
-window.addEventListener('mouseleave', ()=>{ mouse.x=-9999; mouse.y=-9999; });
- 
-function draw(){
-  ctx.clearRect(0,0,w,h);
-  for(const d of dots){
-    const dx = d.x - mouse.x;
-    const dy = d.y - mouse.y;
-    const dist = Math.sqrt(dx*dx + dy*dy);
-    const influence = Math.max(0, 1 - dist/160);
-    const r = d.baseR + influence*2.4;
-    const alpha = 0.18 + influence*0.7;
-    ctx.beginPath();
-    ctx.arc(d.x, d.y, r, 0, Math.PI*2);
-    ctx.fillStyle = `rgba(168,85,247,${alpha})`;
-    ctx.fill();
-  }
-  requestAnimationFrame(draw);
-}
-draw();
- 
-/* ---------- ARROW MOVES ALONG PATH ON SCROLL ---------- */
-const arrowPath = document.getElementById('arrowPath');
-const arrowMover = document.getElementById('arrowMover');
-const whoSection = document.getElementById('whoweare');
-const pathLength = arrowPath.getTotalLength();
- 
-function updateArrow(){
-  const rect = whoSection.getBoundingClientRect();
-  const vh = window.innerHeight;
-  // progress 0 -> 1 as section moves through viewport
-  let progress = (vh - rect.top) / (rect.height + vh);
-  progress = Math.min(Math.max(progress, 0), 1);
-  const point = arrowPath.getPointAtLength(progress * pathLength);
-  arrowMover.setAttribute('cx', point.x);
-  arrowMover.setAttribute('cy', point.y);
-}
-window.addEventListener('scroll', updateArrow);
-window.addEventListener('resize', updateArrow);
-updateArrow();
- 
-/* ---------- GAME CARDS CAROUSEL (infinite loop) ---------- */
-const games = [
-  {name:"R.E.P.O.", c1:"#1f6b4a", c2:"#0e3424"},
-  {name:"PEAK", c1:"#3a6fa0", c2:"#16314a"},
-  {name:"Mecca Chameleon", c1:"#b85a2e", c2:"#5a2a12"},
-  {name:"Euro Truck Simulator 2", c1:"#2b5f8a", c2:"#10293e"},
-  {name:"Kingdoms Reborn", c1:"#6b8c3a", c2:"#2e3d15"},
-  {name:"Dying Light", c1:"#444", c2:"#161616"},
-  {name:"Escape the Backrooms", c1:"#7a6a2a", c2:"#332b0e"},
-  {name:"Dice Kingdoms", c1:"#7a3a8a", c2:"#33163e"},
-];
-const track = document.getElementById('carouselTrack');
-function buildCards(){
-  const doubled = [...games, ...games];
-  track.innerHTML = doubled.map(g => `
-    <div class="game-card" style="background:linear-gradient(135deg, ${g.c1}, ${g.c2});">
-      <span>${g.name}</span>
-    </div>
-  `).join('');
-}
-buildCards();
-</script>
- 
+    </section>
+
+        <!-- Секция Подписки (CTA) -->
+    <section class="cta-section reveal">
+        <div class="container cta-container">
+            <div class="cta-box">
+                <h2>Подпишись на новости</h2>
+                <p>Следи за анонсами и развитием проекта в нашем телеграмм канале</p>
+                <a href="#" class="cta-btn">Подписаться</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer reveal">
+        <div class="container footer-container">
+            <!-- Линия разделитель -->
+            <div class="footer-divider"></div>
+            
+            <div class="footer-content">
+                <!-- Левая колонка -->
+                <div class="footer-col branding reveal reveal-delay-1">
+                    <div class="footer-logo">
+                        <svg viewBox="0 0 24 24" fill="none" style="width:24px; height:24px; margin-right:8px;"><rect x="2" y="6" width="20" height="12" rx="2" fill="#8b3cf2"/><rect x="5" y="9" width="2" height="2" fill="#0a0816"/><rect x="8" y="9" width="2" height="2" fill="#0a0816"/><rect x="11" y="9" width="2" height="2" fill="#0a0816"/><rect x="14" y="9" width="2" height="2" fill="#0a0816"/><rect x="17" y="9" width="2" height="2" fill="#0a0816"/><rect x="6" y="13" width="12" height="2" fill="#0a0816"/></svg>
+                        <span>FixOn</span>
+                    </div>
+                    <p class="footer-slogan">Играй с друзьями<br>без границ</p>
+                </div>
+
+                <!-- Средние колонки -->
+                <div class="footer-col reveal reveal-delay-1">
+                    <h4>Команда</h4>
+                    <ul>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="https://t.me/FixOnGame">Telegram</a></li>
+                        <li><a href="#">Discord</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col reveal reveal-delay-1">
+                    <h4>Помощь</h4>
+                    <ul>
+                        <li><a href="#">Политика<br>конфиденциальности</a></li>
+                        <li><a href="#">Отказ от<br>ответственности</a></li>
+                        <li><a href="#">Правообладателям</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col reveal reveal-delay-1">
+                    <h4>Ресурсы</h4>
+                    <ul>
+                        <li><a href="#">Реклама</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Нижняя часть футера (копирайт) -->
+            <div class="footer-bottom reveal reveal-delay-1">
+                <p>©2026 FixOn. Использование материалов сайта без разрешения запрещено.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Скрипты -->
+    <script src="js/global/footer.js"></script>
     <script src="js/global/header.js"></script>
     <script src="js/global/modal.js"></script>
-    <script src="js/global/footer.js"></script>
     <script src="js/pages/index.js"></script>
 </body>
 </html>

@@ -1,0 +1,113 @@
+/* ФУТЕР */
+.footer {
+    background: linear-gradient(to bottom, rgba(8, 8, 12, 0.7), rgba(8, 8, 12, 0.95)), url('img/Rectangle\ 20.png');
+    background-size: cover;
+    background-position: center 30%;
+    padding: 60px 0 30px;
+    position: relative;
+    border-top: 1px solid var(--border);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Линия разделитель */
+.footer-divider {
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.15);
+    margin-bottom: 40px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+/* Колонки */
+.footer-col h4 {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-col ul li a {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    line-height: 1.4;
+}
+.footer-col ul li a:hover {
+    color: var(--accent);
+}
+
+/* Лого и слоган */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    font-size: 1.8rem;
+    letter-spacing: 0.1em;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.footer-logo svg { flex-shrink: 0; }
+
+.footer-slogan {
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+}
+
+/* Нижняя часть */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 25px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+/* АДАПТИВ ФУТЕРА (Мобильные) */
+@media (max-width: 1024px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .cta-box {
+        padding: 40px 20px;
+    }
+    .cta-box h2 { font-size: 1.8rem; }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .footer-slogan { font-size: 1.2rem; }
+    .footer-bottom { justify-content: center; text-align: center; }
+}
