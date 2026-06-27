@@ -12,7 +12,173 @@
     <link rel="stylesheet" href="css/pages/donat.css">
 </head>
 <body>
-    
+    <style>
+        
+    </style>
+</head>
+<body>
+
+    <!-- Хедер -->
+    <header>
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="12" rx="2" fill="#8b3cf2"/><rect x="5" y="9" width="2" height="2" fill="#0a0816"/><rect x="8" y="9" width="2" height="2" fill="#0a0816"/><rect x="11" y="9" width="2" height="2" fill="#0a0816"/><rect x="14" y="9" width="2" height="2" fill="#0a0816"/><rect x="17" y="9" width="2" height="2" fill="#0a0816"/><rect x="6" y="13" width="12" height="2" fill="#0a0816"/></svg>
+                FixOn
+            </a>
+
+            <div class="search-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="text" placeholder="Поиск игр...">
+            </div>
+
+            <nav class="header-nav">
+                <a href="#">Игры</a>
+                <a href="#">Библиотека</a>
+                <a href="#">Инструкции</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#" class="btn-signin">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Войти
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- Заголовок -->
+        <div class="donate-header">
+            <h1>Поддержать авторов</h1>
+            <p>Ваша поддержка помогает нам создавать новые игры и улучшать сервис FixOn.</p>
+        </div>
+
+        <!-- Мотивационные блоки -->
+        <div class="motivation-grid">
+            <div class="motive-card">
+                <span class="icon">🚀</span>
+                <h3>Новые игры</h3>
+                <p>С вашей помощью мы сможем лицензировать больше крутых проектов.</p>
+            </div>
+            <div class="motive-card">
+                <span class="icon">⚡</span>
+                <h3>Быстрые серверы</h3>
+                <p>Улучшение инфраструктуры для стабильной игры без лагов.</p>
+            </div>
+            <div class="motive-card">
+                <span class="icon">🎁</span>
+                <h3>Эксклюзивные бонусы</h3>
+                <p>Донатерам доступны особые скины и ранний доступ к новинкам.</p>
+            </div>
+        </div>
+
+        <!-- Форма доната -->
+        <div class="donate-form-wrapper">
+            <h2>Выберите сумму</h2>
+            <form class="donate-form" action="#" method="POST">
+                
+                <div class="input-group">
+                    <select required>
+                        <option value="" disabled selected>Валюта / Способ оплаты</option>
+                        <option value="rub">₽ Российский рубль</option>
+                        <option value="usd">$ Доллар США</option>
+                        <option value="crypto">₿ Криптовалюта (USDT)</option>
+                    </select>
+                </div>
+
+                <div class="amount-grid">
+                    <button type="button" class="amount-btn" data-amount="100">100 ₽</button>
+                    <button type="button" class="amount-btn active" data-amount="300">300 ₽</button>
+                    <button type="button" class="amount-btn" data-amount="500">500 ₽</button>
+                    <button type="button" class="amount-btn" data-amount="1000">1 000 ₽</button>
+                    <button type="button" class="amount-btn" data-amount="3000">3 000 ₽</button>
+                    <button type="button" class="amount-btn" data-amount="custom">Своя</button>
+                </div>
+
+                <div class="input-group">
+                    <input type="number" id="customAmount" placeholder="Или введите свою сумму" min="50" style="display: none;">
+                </div>
+
+                <div class="input-group">
+                    <textarea placeholder="Комментарий к донату (необязательно)"></textarea>
+                </div>
+
+                <button type="submit" class="btn-pay">Поддержать сервис</button>
+                
+                <div class="secure-note">
+                    <span>🔒 Безопасное соединение</span> • Платежи обрабатываются через защищенный шлюз.
+                </div>
+            </form>
+        </div>
+
+    </main>
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-divider"></div>
+            
+            <div class="footer-content">
+                <div class="footer-col branding">
+                    <div class="footer-logo">
+                        <svg viewBox="0 0 24 24" fill="none" style="width:24px; height:24px; margin-right:8px;"><rect x="2" y="6" width="20" height="12" rx="2" fill="#8b3cf2"/><rect x="5" y="9" width="2" height="2" fill="#0a0816"/><rect x="8" y="9" width="2" height="2" fill="#0a0816"/><rect x="11" y="9" width="2" height="2" fill="#0a0816"/><rect x="14" y="9" width="2" height="2" fill="#0a0816"/><rect x="17" y="9" width="2" height="2" fill="#0a0816"/><rect x="6" y="13" width="12" height="2" fill="#0a0816"/></svg>
+                        FixOn
+                    </div>
+                    <p class="footer-slogan">Играй с друзьями<br>без границ</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Команда</h4>
+                    <ul>
+                        <li><a href="index.html#whoweare">О нас</a></li>
+                        <li><a href="https://t.me/FixOnGame">Telegram</a></li>
+                        <li><a href="https://discord.gg/fbpxHDyUVf">Discord</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Помощь</h4>
+                    <ul>
+                        <li><a href="konfident.html">Политика<br>конфиденциальности</a></li>
+                        <li><a href="disclaimer_of_liability.html">Отказ от<br>ответственности</a></li>
+                        <li><a href="owner.html">Правообладателям</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Ресурсы</h4>
+                    <ul>
+                        <li><a href="#">Реклама</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 FixOn. Использование материалов сайта без разрешения запрещено.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Логика выбора сумм для кнопок
+        const amountBtns = document.querySelectorAll('.amount-btn');
+        const customInput = document.getElementById('customAmount');
+
+        amountBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Убираем активный класс у всех
+                amountBtns.forEach(b => b.classList.remove('active'));
+                // Добавляем класс текущей нажатой кнопке
+                this.classList.add('active');
+
+                // Если нажали "Своя" - показываем инпут
+                if (this.dataset.amount === 'custom') {
+                    customInput.style.display = 'block';
+                    customInput.focus();
+                } else {
+                    customInput.style.display = 'none';
+                }
+            });
+        });
+    </script>
     <script src="js/global/header.js"></script>
     <script src="js/global/modal.js"></script>
     <script src="js/global/footer.js"></script>

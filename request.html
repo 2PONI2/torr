@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixOn | Регистрация</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global/reset.css">
+    <link rel="stylesheet" href="css/global/variables.css">
+    <link rel="stylesheet" href="css/global/typography.css">
+    <link rel="stylesheet" href="css/global/layout.css">
+    <link rel="stylesheet" href="css/global/components.css">
+    <link rel="stylesheet" href="css/pages/request.css">
+</head>
+<body>
+
+    <!-- Хедер -->
+    <header>
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="12" rx="2" fill="#8b3cf2"/><rect x="5" y="9" width="2" height="2" fill="#0a0816"/><rect x="8" y="9" width="2" height="2" fill="#0a0816"/><rect x="11" y="9" width="2" height="2" fill="#0a0816"/><rect x="14" y="9" width="2" height="2" fill="#0a0816"/><rect x="17" y="9" width="2" height="2" fill="#0a0816"/><rect x="6" y="13" width="12" height="2" fill="#0a0816"/></svg>
+                FixOn
+            </a>
+
+            <div class="search-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="text" placeholder="Поиск игр...">
+            </div>
+
+            <nav class="header-nav">
+                <a href="#">Игры</a>
+                <a href="#">Библиотека</a>
+                <a href="#">Инструкции</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="sing_in.html" class="btn-signin">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Войти
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Контент -->
+    <main>
+        <div class="container request-wrapper">
+            <h1 class="page-title">Запрос на добавление игры</h1>
+
+            <div class="request-form-card">
+                <form class="request-form" action="#" method="POST">
+                    
+                    <div class="form-group">
+                        <label for="gameName">Название игры <span>*</span></label>
+                        <input type="text" id="gameName" class="form-control" placeholder="Например: Cyberpunk 2077" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="gameGenre">Жанр</label>
+                            <select id="gameGenre" class="form-control">
+                                <option value="" disabled selected>Выберите жанр</option>
+                                <option value="action">Экшен</option>
+                                <option value="horror">Хоррор</option>
+                                <option value="rpg">RPG</option>
+                                <option value="strategy">Стратегия</option>
+                                <option value="simulator">Симулятор</option>
+                                <option value="shooter">Шутер</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="releaseYear">Год выпуска</label>
+                            <input type="number" id="releaseYear" class="form-control" placeholder="2024" min="2000" max="2026">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gameLink">Ссылка на игру (Steam / Официальный сайт)</label>
+                        <input type="url" id="gameLink" class="form-control" placeholder="https://store.steampowered.com/...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gameComment">Почему стоит добавить эту игру?</label>
+                        <textarea id="gameComment" class="form-control" placeholder="Напишите пару слов о том, почему эта игра интересна сообществу FixOn..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userContact">Ваш контакт для связи (Telegram / Email)</label>
+                        <input type="text" id="userContact" class="form-control" placeholder="@nickname или mail@example.com">
+                    </div>
+
+                    <button type="submit" class="btn-submit">Отправить запрос</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-divider"></div>
+            
+            <div class="footer-content">
+                <div class="footer-col branding">
+                    <div class="footer-logo">
+                        <svg viewBox="0 0 24 24" fill="none" style="width:24px; height:24px; margin-right:8px;"><rect x="2" y="6" width="20" height="12" rx="2" fill="#8b3cf2"/><rect x="5" y="9" width="2" height="2" fill="#0a0816"/><rect x="8" y="9" width="2" height="2" fill="#0a0816"/><rect x="11" y="9" width="2" height="2" fill="#0a0816"/><rect x="14" y="9" width="2" height="2" fill="#0a0816"/><rect x="17" y="9" width="2" height="2" fill="#0a0816"/><rect x="6" y="13" width="12" height="2" fill="#0a0816"/></svg>
+                        FixOn
+                    </div>
+                    <p class="footer-slogan">Играй с друзьями<br>без границ</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Команда</h4>
+                    <ul>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Telegram</a></li>
+                        <li><a href="#">Discord</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Помощь</h4>
+                    <ul>
+                        <li><a href="policy.html">Политика конфиденциальности</a></li>
+                        <li><a href="disclaimer.html">Отказ от ответственности</a></li>
+                        <li><a href="copyright.html">Правообладателям</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Ресурсы</h4>
+                    <ul>
+                        <li><a href="#">Реклама</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 FixOn. Использование материалов сайта без разрешения запрещено.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

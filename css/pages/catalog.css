@@ -1,0 +1,209 @@
+
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.3s;
+}
+a:hover {
+  color: var(--accent);
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.page-header {
+  margin-bottom: 2.5rem;
+}
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+.page-header-divider {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  margin-top: 1rem;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 3rem;
+  align-items: start;
+  margin-bottom: 3rem;
+}
+
+/* СПИСОК ИГР (Левая колонка) */
+.games-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.game-list-item {
+  display: flex;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.game-list-item:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-hover);
+  transform: translateX(4px);
+}
+
+.game-list-item img {
+  width: 80px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-right: 1.2rem;
+}
+
+.game-list-item .game-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ФИЛЬТРЫ (Правая колонка) */
+.filters-sidebar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 2rem;
+  position: sticky;
+  top: 100px; /* Прилипает при скролле */
+}
+
+.filters-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.8rem;
+}
+
+.filter-group {
+  margin-bottom: 1.5rem;
+}
+.filter-group:last-child {
+  margin-bottom: 0;
+}
+
+.filter-group-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Стилизация чекбоксов (кастомные) */
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: 0.2s;
+}
+.filter-option:hover {
+  color: #fff;
+}
+
+/* Прячем стандартный чекбокс */
+.filter-option input[type="checkbox"] {
+  display: none;
+}
+
+/* Рисуем свой квадратик */
+.custom-check {
+  width: 16px;
+  height: 16px;
+  background: #0d0d14;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+/* Галка внутри */
+.custom-check::after {
+  content: "✔";
+  color: #fff;
+  font-size: 10px;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+/* Когда чекбокс выбран */
+.filter-option input:checked + .custom-check {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.filter-option input:checked + .custom-check::after {
+  opacity: 1;
+}
+
+/* АДАПТИВ */
+@media (max-width: 1024px) {
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+  .filters-sidebar {
+    position: static; /* На мобильных фильтр не липнет, а идет после списка */
+    order: 2; /* Можно перенести фильтры вниз, если нужно */
+  }
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .header-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    order: 3;
+    width: 100%;
+    border-top: 1px solid var(--border);
+    padding-top: 0.8rem;
+  }
+  .page-title {
+    font-size: 2rem;
+  }
+  .game-list-item img {
+    width: 60px;
+    height: 40px;
+    margin-right: 0.8rem;
+  }
+  .game-list-item .game-name {
+    font-size: 0.95rem;
+  }
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+}

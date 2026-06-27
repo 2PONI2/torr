@@ -1,0 +1,142 @@
+
+
+/* СТРАНИЦА ЗАПРОСА ИГРЫ */
+main {
+  flex: 1; /* Растягивает основной блок, прижимая футер к низу */
+  display: flex;
+  justify-content: center;
+  padding: 4rem 0 6rem;
+}
+
+.request-wrapper {
+  width: 100%;
+  max-width: 700px;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin-bottom: 3rem;
+  color: #fff;
+}
+
+/* Карточка формы */
+.request-form-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 3rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.request-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+/* Группы полей */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.form-group label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.form-group label span {
+  color: var(--red-accent);
+}
+
+/* Инпуты и текстовая область */
+.form-control {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  background: #0d0d14;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: "Tektur", sans-serif;
+  font-size: 1rem;
+  outline: none;
+  transition: var(--transition);
+}
+.form-control:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.15);
+  background: rgba(17, 17, 24, 0.9);
+}
+.form-control::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Двойной ряд (в одной строке) */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* Кнопка отправки */
+.btn-submit {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  width: 100%;
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  font-family: "Tektur", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.2);
+  margin-top: 0.5rem;
+}
+.btn-submit:hover {
+  background: #9333ea;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(168, 85, 247, 0.4);
+}
+
+/* АДАПТИВ */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .header-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    order: 3;
+    width: 100%;
+    border-top: 1px solid var(--border);
+    padding-top: 0.8rem;
+  }
+  .page-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .request-form-card {
+    padding: 1.5rem;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+}
