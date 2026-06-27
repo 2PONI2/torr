@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FixOn | Регистрация</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/global/reset.css">
     <link rel="stylesheet" href="css/global/variables.css">
     <link rel="stylesheet" href="css/global/typography.css">
@@ -13,6 +16,70 @@
 </head>
 <body>
     
-    
+    <div class="register-wrapper">
+        <h1 class="register-title">Регистрация</h1>
+
+        <form class="register-form" action="#" method="POST" id="registerForm">
+            
+            <!-- Поле Почты -->
+            <div class="input-wrapper error-top">
+                <input type="email" id="regEmail" placeholder="Почта" required>
+                <div class="validation-message">
+                    ⚠️ Адрес электронной почты должен содержать символ "@".
+                </div>
+            </div>
+
+            <!-- Поле Пароля -->
+            <div class="input-wrapper error-bottom">
+                <input type="password" id="regPassword" placeholder="Пароль" required>
+                <div class="validation-message">
+                    ⚠️ Поле пароля обязательно для заполнения.
+                </div>
+            </div>
+
+            <!-- Кастомный Чекбокс -->
+            <label class="checkbox-wrapper">
+                <input type="checkbox" required>
+                <span class="custom-checkmark"></span>
+                <span class="checkbox-label">
+                    Принять <a href="#">политику конфиденциальности</a>
+                </span>
+            </label>
+
+            <div class="disclaimer-text">
+                Регистрируясь на сайте вы соглашаетесь с <a href="#">политикой конфиденциальности</a>
+            </div>
+
+            <button type="submit" class="btn-register">Зарегистрироваться</button>
+            
+        </form>
+    </div>
+
+    <script>
+        // Валидация полей (такая же логика, как на странице входа)
+        const inputs = document.querySelectorAll('.input-wrapper input');
+        const form = document.getElementById('registerForm');
+
+        inputs.forEach(input => {
+            input.addEventListener('invalid', function(event) {
+                event.preventDefault();
+                this.parentElement.classList.add('error');
+            });
+
+            input.addEventListener('input', function() {
+                this.parentElement.classList.remove('error');
+            });
+        });
+
+        // Блокировка отправки формы, если не стоит галочка
+        form.addEventListener('submit', function(event) {
+            const checkbox = this.querySelector('input[type="checkbox"]');
+            if (!checkbox.checked) {
+                event.preventDefault();
+                // Можно добавить анимацию тряски чекбокса здесь
+                alert('Пожалуйста, примите условия политики конфиденциальности.');
+            }
+        });
+    </script>
 </body>
 </html>

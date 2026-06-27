@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FixOn | Вход</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/global/reset.css">
     <link rel="stylesheet" href="css/global/variables.css">
     <link rel="stylesheet" href="css/global/typography.css">
@@ -12,7 +15,52 @@
     <link rel="stylesheet" href="css/pages/sing_in.css">
 </head>
 <body>
-    
-    
+    <div class="login-wrapper">
+        <h1 class="login-title">Вход</h1>
+
+        <form class="login-form" action="#" method="POST">
+            
+            <!-- Поле Почты (Ошибка сверху) -->
+            <div class="input-wrapper error-top">
+                <input type="email" placeholder="Почта" required>
+                <div class="validation-message">
+                    ⚠️ Адрес электронной почты должен содержать символ "@".
+                </div>
+            </div>
+
+            <!-- Поле Пароля (Ошибка снизу) -->
+            <div class="input-wrapper error-bottom">
+                <input type="password" placeholder="Пароль" required>
+                <div class="validation-message">
+                    ⚠️ Поле пароля обязательно для заполнения.
+                </div>
+            </div>
+
+            <div class="legal-note">
+                Пользуясь сайтом вы соглашаетесь с <a href="#">политикой конфиденциальности</a>
+            </div>
+
+            <button type="submit" class="btn-login">Войти</button>
+            
+        </form>
+    </div>
+
+    <script>
+        // Находим все инпуты внутри оберток
+        const inputs = document.querySelectorAll('.input-wrapper input');
+
+        inputs.forEach(input => {
+            // При попытке отправки с ошибкой
+            input.addEventListener('invalid', function(event) {
+                event.preventDefault(); // Полностью блокируем белое окно браузера
+                this.parentElement.classList.add('error');
+            });
+
+            // Как только пользователь начинает печатать, убираем ошибку
+            input.addEventListener('input', function() {
+                this.parentElement.classList.remove('error');
+            });
+        });
+    </script>
 </body>
 </html>

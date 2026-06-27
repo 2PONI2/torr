@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FixOn</title>
+    <link rel="stylesheet" href="css/pages/index.css">
     <link rel="stylesheet" href="css/global/reset.css">
     <link rel="stylesheet" href="css/global/variables.css">
     <link rel="stylesheet" href="css/global/typography.css">
     <link rel="stylesheet" href="css/global/layout.css">
     <link rel="stylesheet" href="css/global/components.css">
-    <link rel="stylesheet" href="css/pages/index.css">
-    <!-- Подключение шрифта Inter для красоты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -38,7 +37,7 @@
                 <a href="#">Инструкции</a>
                 <a href="#">Донат</a>
             </nav>
-            <button class="signin">SIGN IN</button>
+            <a href="sing_in.html"><button class="signin">SIGN IN</button></a>
         </div>
     </header>
 
@@ -49,8 +48,8 @@
                 <h1>Играй<br>бесплатно в<br>мультиплеерные<br>игры</h1>
                 <p>Забудь о настройках. Просто скачай и играй с друзьями в любые игры по мультиплееру. Без головной боли.</p>
                 <div class="hero-buttons">
-                    <button class="btn-primary">Начни сейчас</button>
-                    <button class="btn-secondary">Инструкция</button>
+                    <a href="store.html"><button class="btn-primary">Начни сейчас</button></a>
+                    <a href=""><button class="btn-secondary">Инструкция</button></a>
                 </div>
             </div>
             <div class="portal-wrap">
@@ -67,7 +66,6 @@
         </div>
     </section>
 
-        <!-- Секция "Кто мы" -->
     <section class="whoweare reveal" id="whoweare">
         <div class="container">
             <div class="who-header">
@@ -75,12 +73,9 @@
             </div>
             
             <div class="who-track" id="whoTrack">
-                <!-- Фоновый SVG с линией -->
                 <div class="arrow-svg-wrap">
                     <svg id="arrowSvg" width="100%" height="100%" viewBox="0 0 1000 600" style="position:absolute; inset:0; width:100%; height:100%;">
-                        <!-- Сама линия -->
                         <path id="arrowPath" fill="none" stroke="#a855f7" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
-                        <!-- Кругляшок в конце -->
                         <circle id="arrowMover" r="5" fill="#a855f7" style="filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.8));"/>
                     </svg>
                 </div>
@@ -124,7 +119,6 @@
         </div>
     </section>
 
-    <!-- Секция "Игры" (Двойная бесконечная карусель) -->
     <section class="games_slide reveal">
         <div class="container">
             
@@ -167,19 +161,14 @@
         </div>
     </section>
 
-    <!-- Секция "Попробуй сейчас" с НАЛОЖЕННЫМИ КАРТИНКАМИ -->
     <section class="zaziv reveal">
         <div class="container zaziv-content">
             <div class="image-stack-wrapper">
-                <!-- Задняя картинка (синяя) -->
                 <div class="image-back">
-                    <!-- Замените src на путь к вашей синей картинке -->
                     <img src="img/back.png" alt="Back">
                 </div>
                 
-                <!-- Передняя картинка (оранжевая) -->
                 <div class="image-front">
-                    <!-- Замените src на путь к вашей оранжевой картинке -->
                     <img src="img/front.png" alt="Front">
                 </div>
             </div>
@@ -187,18 +176,17 @@
             <div class="zaziv-text">
                 <h2>Попробуй наш сервис <span class="highlight">сейчас</span></h2>
                 <p>Выбери любую игру из каталога, скачай установщик и приглашай друзей. Без регистрации, без лишних телодвижений.</p>
-                <button class="btn-primary btn-large">Начать</button>
+                <a href="store.html"><button class="btn-primary btn-large">Начать</button></a>
             </div>
         </div>
     </section>
 
-        <!-- Секция Подписки (CTA) -->
     <section class="cta-section reveal">
         <div class="container cta-container">
             <div class="cta-box">
                 <h2>Подпишись на новости</h2>
                 <p>Следи за анонсами и развитием проекта в нашем телеграмм канале</p>
-                <a href="#" class="cta-btn">Подписаться</a>
+                <a href="https://t.me/FixOnGame" class="cta-btn">Подписаться</a>
             </div>
         </div>
     </section>
@@ -223,18 +211,18 @@
                 <div class="footer-col reveal reveal-delay-1">
                     <h4>Команда</h4>
                     <ul>
-                        <li><a href="#">О нас</a></li>
+                        <li><a href="#whoweare">О нас</a></li>
                         <li><a href="https://t.me/FixOnGame">Telegram</a></li>
-                        <li><a href="#">Discord</a></li>
+                        <li><a href="https://discord.gg/fbpxHDyUVf">Discord</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col reveal reveal-delay-1">
                     <h4>Помощь</h4>
                     <ul>
-                        <li><a href="#">Политика<br>конфиденциальности</a></li>
-                        <li><a href="#">Отказ от<br>ответственности</a></li>
-                        <li><a href="#">Правообладателям</a></li>
+                        <li><a href="konfident.html">Политика<br>конфиденциальности</a></li>
+                        <li><a href="disclaimer_of_liability.html">Отказ от<br>ответственности</a></li>
+                        <li><a href="owner.html">Правообладателям</a></li>
                     </ul>
                 </div>
 

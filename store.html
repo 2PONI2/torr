@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FixOn | Магазин игр</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/global/reset.css">
     <link rel="stylesheet" href="css/global/variables.css">
     <link rel="stylesheet" href="css/global/typography.css">
@@ -12,7 +15,242 @@
     <link rel="stylesheet" href="css/pages/store.css">
 </head>
 <body>
-    
+    <header>
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="12" rx="2" fill="#8b3cf2"/><rect x="5" y="9" width="2" height="2" fill="#0a0816"/><rect x="8" y="9" width="2" height="2" fill="#0a0816"/><rect x="11" y="9" width="2" height="2" fill="#0a0816"/><rect x="14" y="9" width="2" height="2" fill="#0a0816"/><rect x="17" y="9" width="2" height="2" fill="#0a0816"/><rect x="6" y="13" width="12" height="2" fill="#0a0816"/></svg>
+                FixOn
+            </a>
+
+            <div class="search-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="text" placeholder="Поиск игр...">
+            </div>
+
+            <nav class="header-nav">
+                <a href="#">Игры</a>
+                <a href="#">Библиотека</a>
+                <a href="#">Инструкции</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="sing_in.html" class="btn-signin">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Войти
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-store">
+        <div class="container">
+            <h1>Новинки на FixOn</h1>
+            <div class="hero-grid">
+                <div class="hero-banner">
+                    <img src="img/image 8.png" alt="Escape The Backrooms" style="object-position: top;">
+                    <div class="hero-banner-content">
+                        <h2>ESCAPE THE<br>BACKROOMS</h2>
+                        <p>Исследуйте бесконечные уровни, избегайте опасных существ и найдите выход из кошмарных комнат в этом напряженном хорроре.</p>
+                        <a href="#" class="btn-play">Играть</a>
+                    </div>
+                </div>
+                
+                <!-- Боковая панель -->
+                <div class="hero-sidebar">
+                    <a href="#" class="hero-sidebar-card">
+                        <img src="img/image 26.png" alt="Euro Truck">
+                        <div>
+                            <h4>Euro Truck Simulator 2</h4>
+                            <span>Симулятор</span>
+                        </div>
+                    </a>
+                    <a href="#" class="hero-sidebar-card">
+                        <img src="img/image 22.png" alt="Peak">
+                        <div>
+                            <h4>Peak</h4>
+                            <span>Приключения</span>
+                        </div>
+                    </a>
+                    <a href="#" class="hero-sidebar-card">
+                        <img src="img/image 27.png" alt="Escape">
+                        <div>
+                            <h4>Escape the Backrooms</h4>
+                            <span>Хоррор</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-carousel">
+        <div class="container">
+            <h2 class="section-title">Популярное</h2>
+            <div class="carousel-track">
+                <div class="game-card-sm"><img src="img/image 22.png" alt=""><div class="info"><h4>PEAK</h4></div></div>
+                <div class="game-card-sm"><img src="img/image 27.png" alt=""><div class="info"><h4>Escape the Backrooms</h4></div></div>
+                <div class="game-card-sm"><img src="img/image 26.png" alt=""><div class="info"><h4>Euro Truck Simulator 2</h4></div></div>
+                <div class="game-card-sm"><img src="img/image 25.png" alt=""><div class="info"><h4>R.E.P.O.</h4></div></div>
+                <div class="game-card-sm"><img src="img/image 24.png" alt=""><div class="info"><h4>Dying Light</h4></div></div>
+                <div class="game-card-sm"><img src="img/image 23.png" alt=""><div class="info"><h4>Sons of the Forest</h4></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-carousel reveal reveal-delay-2">
+        <div class="container">
+            <h2 class="section-title">Недавно обновлено</h2>
+            <div class="carousel-track">
+                <div class="game-card-sm"><img src="img/image 22.png" alt=""><div class="info"><h4>PEAK</h4></div></div>
+                <div class="game-card-sm"><img src="img/image 27.png" alt=""><div class="info"><h4>Escape the Backrooms</h4></div></div>
+                <div class="game-card-sm"><img src="img/image 26.png" alt=""><div class="info"><h4>Euro Truck Simulator 2</h4></div></div>
+                <div class="game-card-sm"><img src="img/image 25.png" alt=""><div class="info"><h4>R.E.P.O.</h4></div></div>
+                <div class="game-card-sm"><img src="img/image 24.png" alt=""><div class="info"><h4>Dying Light</h4></div></div>
+                <div class="game-card-sm"><img src="img/image 23.png" alt=""><div class="info"><h4>Sons of the Forest</h4></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories-grid-section reveal reveal-delay-3">
+        <div class="container">
+            <div class="categories-grid">
+                
+                <div class="category-col">
+                    <h3>Экшены</h3>
+                    <ul>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="category-col">
+                    <h3>Хорроры</h3>
+                    <ul>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="category-col">
+                    <h3>Стратегии</h3>
+                    <ul>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="category-col">
+                    <h3>Гонки</h3>
+                    <ul>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="category-col">
+                    <h3>Приключения</h3>
+                    <ul>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="category-col">
+                    <h3>Инди</h3>
+                    <ul>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                        <li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- пожже -->
+                <div class="category-col"><h3>Симуляторы</h3><ul><li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li></ul></div>
+                <div class="category-col"><h3>Шутеры</h3><ul><li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li></ul></div>
+                <div class="category-col"><h3>Драки</h3><ul><li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li></ul></div>
+                <div class="category-col"><h3>Ролевые игры</h3><ul><li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li></ul></div>
+                <div class="category-col"><h3>Спортивные</h3><ul><li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li></ul></div>
+                <div class="category-col"><h3>Казуальные</h3><ul><li><a href="#"><img src="img/image 25.png" alt="">REPO<span class="game-count">5</span></a></li></ul></div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section reveal">
+        <div class="container cta-container">
+            <div class="cta-box">
+                <h2>Подпишись на новости</h2>
+                <p>Следи за анонсами и развитием проекта в нашем телеграмм канале</p>
+                <a href="https://t.me/FixOnGame" class="cta-btn">Подписаться</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer reveal">
+        <div class="container footer-container">
+            <div class="footer-divider"></div>
+            
+            <div class="footer-content">
+                <div class="footer-col branding">
+                    <div class="footer-logo">
+                        <svg viewBox="0 0 24 24" fill="none" style="width:24px; height:24px; margin-right:8px;"><rect x="2" y="6" width="20" height="12" rx="2" fill="#8b3cf2"/><rect x="5" y="9" width="2" height="2" fill="#0a0816"/><rect x="8" y="9" width="2" height="2" fill="#0a0816"/><rect x="11" y="9" width="2" height="2" fill="#0a0816"/><rect x="14" y="9" width="2" height="2" fill="#0a0816"/><rect x="17" y="9" width="2" height="2" fill="#0a0816"/><rect x="6" y="13" width="12" height="2" fill="#0a0816"/></svg>
+                        FixOn
+                    </div>
+                    <p class="footer-slogan">Играй с друзьями<br>без границ</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Команда</h4>
+                    <ul>
+                        <li><a href="index.html#whoweare">О нас</a></li>
+                        <li><a href="https://t.me/FixOnGame">Telegram</a></li>
+                        <li><a href="https://discord.gg/fbpxHDyUVf">Discord</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Помощь</h4>
+                    <ul>
+                        <li><a href="konfident.html">Политика<br>конфиденциальности</a></li>
+                        <li><a href="disclaimer_of_liability.html">Отказ от<br>ответственности</a></li>
+                        <li><a href="owner.html">Правообладателям</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Ресурсы</h4>
+                    <ul>
+                        <li><a href="#">Реклама</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 FixOn. Использование материалов сайта без разрешения запрещено.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        
+    </script>
     <script src="js/global/header.js"></script>
     <script src="js/global/modal.js"></script>
     <script src="js/global/footer.js"></script>

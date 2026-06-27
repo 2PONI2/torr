@@ -1,0 +1,227 @@
+body {
+    font-family: "Tektur", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    
+    /* НОВЫЙ, КРАСИВЫЙ ФОН */
+    /* 1. Базовый очень темный фон */
+    background-color: #05050a;
+    
+    /* 2. Крупное фиолетовое свечение (за формой). 
+       Теперь оно видно, но остается мягким (opacity 0.3) */
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.3) 0%, transparent 60%),
+        
+        /* 3. Мелкая сетка/звездная пыль (для текстуры, чтобы не было скучно) */
+        radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    
+    background-size: 100% 100%, 40px 40px; /* Размер паттерна */
+}
+
+/* Небольшая анимация "дыхания" фона (очень медленная) */
+@keyframes bgPulse {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.02); }
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: inherit;
+    animation: bgPulse 20s ease-in-out infinite;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: 0.3s;
+}
+a:hover {
+    color: var(--accent);
+}
+
+/* ФОРМА ВХОДА */
+.login-wrapper {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.login-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    letter-spacing: 0.02em;
+    color: #fff;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem; /* Чуть увеличил отступы, чтобы плашкам было место */
+}
+
+/* Ссылка на политику */
+.legal-note {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    text-align: left;
+    margin-top: -0.5rem;
+    line-height: 1.4;
+}
+.legal-note a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.legal-note a:hover {
+    color: #fff;
+}
+
+/* Кнопка входа */
+.btn-login {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    width: 100%;
+    padding: 1rem;
+    border-radius: var(--radius);
+    font-family: "Tektur", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.2);
+}
+
+.btn-login:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(168, 85, 247, 0.4);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+/* КАСТОМНАЯ ПОДСКАЗКА (Валидация) */
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Стили самого инпута */
+.input-wrapper input {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-family: 'Tektur', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+}
+.input-wrapper input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+.input-wrapper input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.15);
+    background: rgba(17, 17, 24, 0.9);
+}
+
+/* --- Базовый стиль плашки (общий) --- */
+.validation-message {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background: #1a1a24;
+    border: 1px solid #ff4444;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.8rem;
+    color: #ff6b6b;
+    text-align: left;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+    z-index: 10;
+    font-family: 'Tektur', sans-serif;
+    line-height: 1.4;
+}
+
+/* Показываем плашку, если есть ошибка */
+.input-wrapper.error .validation-message {
+    display: block;
+}
+
+/* Подсветка инпута при ошибке */
+.input-wrapper.error input {
+    border-color: #ff4444 !important;
+    box-shadow: 0 0 0 3px rgba(255, 68, 68, 0.15) !important;
+}
+
+/* ВАРИАНТ 1: ОШИБКА СВЕРХУ (для Почты) */
+.input-wrapper.error-top .validation-message {
+    bottom: calc(100% + 10px);
+}
+
+.input-wrapper.error-top .validation-message::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #1a1a24;
+}
+
+/* ВАРИАНТ 2: ОШИБКА СНИЗУ (для Пароля) */
+.input-wrapper.error-bottom .validation-message {
+    top: calc(100% + 10px);
+}
+
+.input-wrapper.error-bottom .validation-message::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #1a1a24;
+}
+
+/* АДАПТИВ (Мобильные) */
+@media (max-width: 480px) {
+    .login-wrapper {
+        padding: 1.5rem;
+    }
+    .login-title {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
+    .input-wrapper input {
+        padding: 0.9rem 1rem;
+        font-size: 0.95rem;
+    }
+    .btn-login {
+        padding: 0.9rem;
+    }
+}

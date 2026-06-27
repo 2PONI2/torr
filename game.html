@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FixOn | Escape the Backrooms</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/global/reset.css">
     <link rel="stylesheet" href="css/global/variables.css">
     <link rel="stylesheet" href="css/global/typography.css">
@@ -12,7 +15,237 @@
     <link rel="stylesheet" href="css/pages/game.css">
 </head>
 <body>
-    
+    <!-- Хедер -->
+    <header>
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="12" rx="2" fill="#8b3cf2"/><rect x="5" y="9" width="2" height="2" fill="#0a0816"/><rect x="8" y="9" width="2" height="2" fill="#0a0816"/><rect x="11" y="9" width="2" height="2" fill="#0a0816"/><rect x="14" y="9" width="2" height="2" fill="#0a0816"/><rect x="17" y="9" width="2" height="2" fill="#0a0816"/><rect x="6" y="13" width="12" height="2" fill="#0a0816"/></svg>
+                FixOn
+            </a>
+
+            <div class="search-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="text" placeholder="Поиск игр...">
+            </div>
+
+            <nav class="header-nav">
+                <a href="#">Игры</a>
+                <a href="#">Библиотека</a>
+                <a href="#">Инструкции</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#" class="btn-signin">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Войти
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Контент игры -->
+    <main class="container">
+        
+        <div class="game-breadcrumbs">
+            <a href="store.html">Главная</a> <span>/</span>
+            <a href="store.html">Игры</a> <span>/</span>
+            <span>Escape the Backrooms</span>
+        </div>
+
+        <section class="game-hero">
+            <div class="game-media">
+                <div class="game-main-image">
+                    <img src="https://image.tmdb.org/t/p/original/z8ipkF7r7gP1Iq6mE7o3z3m3q3.jpg" alt="Escape the Backrooms Banner">
+                    <div class="play-overlay">▶</div>
+                    <div style="position:absolute; bottom:20px; left:50%; transform:translateX(-50%); color: #fff; font-weight: 700; letter-spacing: 2px; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">ТУТ ВИДЕО БУДЕТ</div>
+                </div>
+                <div class="game-thumbnails">
+                    <img src="https://via.placeholder.com/300x150/2a4a3a/ffffff?text=Screen+1" alt="">
+                    <img src="https://via.placeholder.com/300x150/2a4a3a/ffffff?text=Screen+2" alt="">
+                    <img src="https://via.placeholder.com/300x150/2a4a3a/ffffff?text=Screen+3" alt="">
+                </div>
+            </div>
+
+            <div class="game-info">
+                <div class="game-info-top">
+                    <h1 class="game-title">ESCAPE THE BACKROOMS</h1>
+                    <div class="game-rating">
+                        ★★★★★ <span>4.9 / 5.0</span>
+                    </div>
+
+                    <div class="game-actions">
+                        <button class="btn-download">Скачать</button>
+                        <button class="btn-library">В библиотеку</button>
+                    </div>
+
+                    <div class="game-meta">
+                        <div><strong>Дата выхода:</strong> 15 мая 2024</div>
+                        <div><strong>Жанр:</strong> Хоррор, Кооператив</div>
+                        <div><strong>Разработчик:</strong> Fancy Games</div>
+                        <div><strong>Платформа:</strong> Windows</div>
+                        <div><strong>Язык:</strong> Русский, Английский</div>
+                    </div>
+                </div>
+
+                <div class="game-requirements">
+                    <h4>Системные требования (Минимальные)</h4>
+                    <div class="req-row"><span>Операционная система</span> <span>Windows 10 (64-bit)</span></div>
+                    <div class="req-row"><span>Процессор</span> <span>Intel Core i5 / AMD FX</span></div>
+                    <div class="req-row"><span>Оперативная память</span> <span>8 ГБ</span></div>
+                    <div class="req-row"><span>Видеокарта</span> <span>NVIDIA GeForce GTX 1060</span></div>
+                    <div class="req-row"><span>Место на диске</span> <span>15 ГБ</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="game-content">
+            <div class="game-description">
+                В этом исследовательском хорроре на 1-4 игроков вам предстоит пройти более 30 жутких уровней закулисья, отстаиваясь от ужасающих существ и пытаясь найти путь домой. Помните: здесь нигде нет безопасности и выжить смогут не все.
+            </div>
+
+            <div class="guide-section">
+                <h2>Установка:</h2>
+                <div class="guide-step">
+                    <ul>
+                        <li><strong>1.</strong> Установите игру</li>
+                        <li style="margin-top: 6px; display: block;">
+                            <div class="guide-btn-placeholder">Скачать</div>
+                        </li>
+                        <li style="margin-top: 10px;"><strong>2.</strong> Установите онлайн фикс</li>
+                        <li style="margin-top: 6px; display: block;">
+                            <div class="guide-btn-placeholder secondary">Скачать</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-section">
+                <h2>Запуск Мультиплеера:</h2>
+                <div class="guide-step">
+                    <ul>
+                        <li><strong>1.</strong> Открываем Steam и входим в свой аккаунт</li>
+                        <li><strong>2.</strong> Запускаем Backrooms.exe</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="guide-card">
+                <h3>Игра по сети:</h3>
+                <div class="guide-step">
+                    <h4 style="font-size:1rem; margin-bottom:0.5rem; color:#fff;">Создать сервер:</h4>
+                    <ul>
+                        <li><strong>3.</strong> Multiplayer → Create Server → Указываем количество игроков → Создаем сервер и ждем их готовности, после чего начинаем игру</li>
+                    </ul>
+                </div>
+                <div class="guide-step" style="margin-top:1.5rem;">
+                    <h4 style="font-size:1rem; margin-bottom:0.5rem; color:#fff;">Подключиться к серверу:</h4>
+                    <ul>
+                        <li><strong>4.</strong> Multiplayer → Присоединяемся к серверу из списка. (Если сервер не виден - присоединяйтесь через приглашение)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                После знакомства с игрой ОБЯЗАТЕЛЬНО КУПИТЕ её у правообладателя!
+            </div>
+        </section>
+
+        <section class="reviews-section">
+            <div class="reviews-header">
+                <h2>Отзывы</h2>
+                <button class="btn-write-review">Написать отзыв</button>
+            </div>
+            <div class="reviews-disclaimer">
+                Просим вас писать отзывы, в которых найдёте решение вашей проблемы, если таковой нет - не стоит писать "не работает", пишите "не работает потому-что...". <br>
+                Если у вас проблема - пишите в <a href="#">Тех. Поддержку!</a>
+            </div>
+
+            <div class="review-card">
+                <div class="review-top">
+                    <div class="review-author">
+                        <div class="avatar">👤</div>
+                        <strong>Nickname</strong>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-text">
+                    текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст.
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-top">
+                    <div class="review-author">
+                        <div class="avatar">👤</div>
+                        <strong>Nickname</strong>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-text">
+                    текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст.
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-top">
+                    <div class="review-author">
+                        <div class="avatar">👤</div>
+                        <strong>Nickname</strong>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-text">
+                    текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст.
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-divider"></div>
+            
+            <div class="footer-content">
+                <div class="footer-col branding">
+                    <div class="footer-logo">
+                        <svg viewBox="0 0 24 24" fill="none" style="width:24px; height:24px; margin-right:8px;"><rect x="2" y="6" width="20" height="12" rx="2" fill="#8b3cf2"/><rect x="5" y="9" width="2" height="2" fill="#0a0816"/><rect x="8" y="9" width="2" height="2" fill="#0a0816"/><rect x="11" y="9" width="2" height="2" fill="#0a0816"/><rect x="14" y="9" width="2" height="2" fill="#0a0816"/><rect x="17" y="9" width="2" height="2" fill="#0a0816"/><rect x="6" y="13" width="12" height="2" fill="#0a0816"/></svg>
+                        FixOn
+                    </div>
+                    <p class="footer-slogan">Играй с друзьями<br>без границ</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Команда</h4>
+                    <ul>
+                        <li><a href="index.html#whoweare">О нас</a></li>
+                        <li><a href="https://t.me/FixOnGame">Telegram</a></li>
+                        <li><a href="https://discord.gg/fbpxHDyUVf">Discord</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Помощь</h4>
+                    <ul>
+                        <li><a href="konfident.html">Политика<br>конфиденциальности</a></li>
+                        <li><a href="disclaimer_of_liability.html">Отказ от<br>ответственности</a></li>
+                        <li><a href="owner.html">Правообладателям</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Ресурсы</h4>
+                    <ul>
+                        <li><a href="#">Реклама</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 FixOn. Использование материалов сайта без разрешения запрещено.</p>
+            </div>
+        </div>
+    </footer>
     <script src="js/global/header.js"></script>
     <script src="js/global/modal.js"></script>
     <script src="js/global/footer.js"></script>

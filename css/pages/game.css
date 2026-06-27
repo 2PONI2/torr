@@ -1,0 +1,402 @@
+/* СТРАНИЦА ИГРЫ */
+.game-breadcrumbs {
+  padding: 2rem 0 1rem;
+  display: flex;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+.game-breadcrumbs span {
+  color: var(--text-secondary);
+}
+.game-breadcrumbs a:hover {
+  color: #fff;
+}
+
+/* СТРАНИЦА ИГРЫ: ГЕРОЙ */
+.game-hero {
+  padding-bottom: 3rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 3rem;
+}
+
+/* Левая часть: Картинки */
+.game-media {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.game-main-image {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border);
+}
+.game-main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.game-main-image .play-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: #fff;
+  opacity: 0;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.game-main-image:hover .play-overlay {
+  opacity: 1;
+}
+
+.game-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.game-thumbnails img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.game-thumbnails img:hover {
+  border-color: var(--accent);
+  transform: scale(1.02);
+}
+
+/* Правая часть: Инфо */
+.game-info {
+  display: flex;
+  flex-direction: column;
+}
+.game-info-top {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+.game-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+.game-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: #fbbf24; /* Золотой цвет звезд */
+  font-size: 1.2rem;
+}
+.game-rating span {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.game-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+.btn-download {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  border-radius: 6px;
+  font-family: "Tektur", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+}
+.btn-download:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
+}
+.btn-library {
+  background: transparent;
+  color: #fff;
+  border: 1px solid var(--border);
+  padding: 1rem;
+  border-radius: 6px;
+  font-family: "Tektur", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+}
+.btn-library:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.game-meta {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.game-meta strong {
+  color: #fff;
+}
+
+.game-requirements {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+}
+.game-requirements h4 {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.req-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+.req-row:last-child {
+  border-bottom: none;
+}
+.req-row span:first-child {
+  color: var(--text-secondary);
+}
+.req-row span:last-child {
+  color: #fff;
+}
+
+/* СТРАНИЦА ИГРЫ: КОНТЕНТ */
+.game-content {
+  max-width: 900px;
+  margin-bottom: 4rem;
+}
+
+.game-description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 4rem;
+  line-height: 1.8;
+}
+
+.guide-section {
+  margin-bottom: 3rem;
+}
+.guide-section h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.guide-step {
+  margin-bottom: 2.5rem;
+}
+.guide-step h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.guide-step ul {
+  list-style: none;
+  padding-left: 0;
+  color: var(--text-secondary);
+  line-height: 2;
+}
+.guide-step li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+.guide-step li strong {
+  color: #fff;
+}
+
+/* Специальные плашки для кнопок */
+.guide-btn-placeholder {
+  display: inline-block;
+  background: #7c3aed;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.guide-btn-placeholder.secondary {
+  background: #3b2a5c;
+  color: #d8b4fe;
+}
+
+/* Блок "Игра по сети" - темный фон */
+.guide-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+}
+.guide-card h3 {
+  margin-bottom: 1.5rem;
+}
+
+/* Важное предупреждение */
+.warning-box {
+  margin-top: 3rem;
+  background: rgba(234, 179, 8, 0.05);
+  border-left: 4px solid #eab308;
+  padding: 1.5rem 2rem;
+  border-radius: var(--radius);
+  color: #fef08a;
+  font-weight: 600;
+}
+
+/* СТРАНИЦА ИГРЫ: ОТЗЫВЫ */
+.reviews-section {
+  padding-top: 3rem;
+  border-top: 1px solid var(--border);
+  margin-bottom: 4rem;
+}
+.reviews-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.reviews-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+.btn-write-review {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-family: "Tektur", sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-write-review:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+}
+
+.reviews-disclaimer {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+.reviews-disclaimer a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.review-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+}
+.review-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.review-author .avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--border);
+}
+.review-author strong {
+  font-size: 1rem;
+  color: #fff;
+}
+.review-stars {
+  color: #fbbf24;
+}
+.review-text {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* АДАПТИВ */
+@media (max-width: 1024px) {
+  .game-hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .header-nav {
+    order: 3;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+  }
+  .game-title {
+    font-size: 2rem;
+  }
+  .game-requirements {
+    margin-top: 1.5rem;
+  }
+  .guide-card {
+    padding: 1rem;
+  }
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+  .reviews-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

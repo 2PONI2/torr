@@ -1,0 +1,231 @@
+body {
+    font-family: "Tektur", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    
+    background-color: #05050a;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.3) 0%, transparent 60%),
+        radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 40px 40px;
+}
+
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: inherit;
+    animation: bgPulse 20s ease-in-out infinite;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+
+
+/* ФОРМА РЕГИСТРАЦИИ */
+.register-wrapper {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.register-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    letter-spacing: 0.02em;
+    color: #fff;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ИНПУТЫ И ОШИБКИ (Валидация) */
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-family: 'Tektur', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+}
+.input-wrapper input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+.input-wrapper input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.15);
+    background: rgba(17, 17, 24, 0.9);
+}
+
+/* Плашки ошибок */
+.validation-message {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background: #1a1a24;
+    border: 1px solid #ff4444;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.8rem;
+    color: #ff6b6b;
+    text-align: left;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+    z-index: 10;
+    font-family: 'Tektur', sans-serif;
+    line-height: 1.4;
+}
+.input-wrapper.error .validation-message { display: block; }
+.input-wrapper.error input {
+    border-color: #ff4444 !important;
+    box-shadow: 0 0 0 3px rgba(255, 68, 68, 0.15) !important;
+}
+
+/* Ошибка сверху */
+.input-wrapper.error-top .validation-message { bottom: calc(100% + 10px); }
+.input-wrapper.error-top .validation-message::after {
+    content: ''; position: absolute; bottom: -8px; left: 20px;
+    width: 0; height: 0;
+    border-left: 8px solid transparent; border-right: 8px solid transparent;
+    border-top: 8px solid #1a1a24;
+}
+
+/* Ошибка снизу */
+.input-wrapper.error-bottom .validation-message { top: calc(100% + 10px); }
+.input-wrapper.error-bottom .validation-message::before {
+    content: ''; position: absolute; top: -8px; left: 20px;
+    width: 0; height: 0;
+    border-left: 8px solid transparent; border-right: 8px solid transparent;
+    border-bottom: 8px solid #1a1a24;
+}
+
+/* ЧЕКБОКС */
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-top: 0.5rem;
+    cursor: pointer;
+}
+
+/* Скрываем стандартный чекбокс */
+.checkbox-wrapper input[type="checkbox"] {
+    display: none;
+}
+
+/* Рисуем свой квадратик */
+.custom-checkmark {
+    width: 18px;
+    height: 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+/* Галка внутри чекбокса (скрыта по умолчанию) */
+.custom-checkmark::after {
+    content: '✔';
+    color: #fff;
+    font-size: 12px;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+/* При нажатии (checked) */
+.checkbox-wrapper input:checked + .custom-checkmark {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+.checkbox-wrapper input:checked + .custom-checkmark::after {
+    opacity: 1;
+}
+
+/* Текст рядом с чекбоксом */
+.checkbox-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-align: left;
+    line-height: 1.3;
+}
+.checkbox-label a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.checkbox-label a:hover { color: #fff; }
+
+/* Текст Disclaimer внизу */
+.disclaimer-text {
+    font-size: 0.6rem;
+    color: rgba(255,255,255,0.15);
+    text-align: left;
+    margin-top: -0.5rem;
+    line-height: 1.4;
+}
+
+/* КНОПКА */
+.btn-register {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    width: 100%;
+    padding: 1rem;
+    border-radius: var(--radius);
+    font-family: "Tektur", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.2);
+}
+.btn-register:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(168, 85, 247, 0.4);
+}
+.btn-register:active {
+    transform: translateY(0);
+}
+
+/* АДАПТИВ (Мобильные) */
+@media (max-width: 480px) {
+    .register-wrapper { padding: 1.5rem; }
+    .register-title { font-size: 2.2rem; margin-bottom: 2rem; }
+    .input-wrapper input { padding: 0.9rem 1rem; font-size: 0.95rem; }
+    .btn-register { padding: 0.9rem; }
+}
